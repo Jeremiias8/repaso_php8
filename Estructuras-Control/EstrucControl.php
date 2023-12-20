@@ -317,4 +317,34 @@
         $b => 5,
         $c => 5,
     };
+
+    echo "result: " .$result2;
+
+
+    // DECLARE
+    // esto
+    declare(ticks = 1);
+
+    // o esto (son lo mismo)
+    declare(ticks = 2) {
+        // script aquí
+    }
+
+    // DECLARE - TICK
+    // ejemplo
+    declare(ticks = 1);
+
+    function tick_handler()
+    {
+        echo "tick_handler() llamado\n";
+    }
+
+    register_tick_function('tick_handler');
+
+    $a = 4;
+    if ($a > 0) {
+        $a += 2;
+        print($a); // mientras sea mayor que 0...
+    }
+
 ?>
