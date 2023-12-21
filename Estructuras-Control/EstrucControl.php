@@ -347,4 +347,55 @@
         print($a); // mientras sea mayor que 0...
     }
 
+    // ENCODING
+    declare(encoding = 'ISO-8859-1');
+        // code here
+
+
+    // RETURN
+    $inclusion = include("smth.php");
+    echo "this is a include: " .`${inclusion}`;
+    echo "done it";
+    return;
+
+
+    // REQUIRE
+    /*
+        foo.php:
+        return "foo";
+    */
+
+    $test = require("foo.php");
+    echo $test; // "foo"
+
+
+    // INCLUDE
+    // ej. básico
+    /*
+        fruits.php:
+            $color = "verde";
+            $fruta = "manzana"; 
+    */
+    /*
+        test.php:
+            echo "Una $fruta $color"; // Una
+        
+        include 'fruits.php';
+
+        echo "Una $fruta $color"; // Una manzana verde
+    */
+
+    // con funciones
+    function foo()
+    {
+        global $color;
+
+        include 'fruits.php';
+
+        echo "Una $fruta $color";
+    }
+
+    foo(); // Una manzana verde
+    echo "Una $fruta $color"; // Una verde
+    // solo muestra 'verde', valor de $color, porque es declarada como global
 ?>
